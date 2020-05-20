@@ -64,7 +64,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-
+  /* 获取列表数据*/ 
   getMovieList:function(){
     wx.showLoading({
       title: '正在加载中',
@@ -85,5 +85,11 @@ Page({
       console.error(err);
       wx.hideLoading();
     });
+  },
+  gotoComment:function(event){
+    wx.navigateTo({
+      url:`../comment/comment?movieid=${event.target.dataset.movieid}`
+    });
+    
   },
 })

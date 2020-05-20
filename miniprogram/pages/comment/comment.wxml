@@ -1,0 +1,26 @@
+<!--miniprogram/pages/comment/comment.wxml-->
+<view >
+  <view class="detail-container" style="background:url({{detail.images.large}}) no-repeat top/cover"></view>
+  <view class="detail-mask"></view>
+  <view class="detail-info">
+    <image class="detail-img" src="{{detail.images.small}}"></image>
+    <view class="detail-txt">
+     <text class="detail-title">{{detail.title}}</text>
+     <text class="detail-ortitle">{{detail.original_title}}</text>
+     <text class="detail-average">评分: {{detail.rating.average}} 分</text>
+     <text class="detail-countries">{{detail.countries[0]}}</text>
+     <text class="detail-casts">导演: {{detail.casts[0].name}}</text>
+    </view>
+  </view> 
+    <view class="detail-srcview">
+    <text class="detail-src">{{detail.summary}}</text>
+    </view>
+    <van-field
+    value="{{ content }}"
+    placeholder="请输入评价啊"
+    bind:change="onContentChange"
+  />
+  <van-rate value="{{ score }}" bind:change="onScoreChange" />
+  <van-button type="warning" block="true" bindtap="upLoadImg">上传图片</van-button>
+  <van-button class="detail-commit" type="danger" size="large" bindtap="submit">提交评价</van-button>
+</view>
